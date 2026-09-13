@@ -59,12 +59,10 @@
   environment.systemPackages = with pkgs; [
     # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # wget
-    arduino-ide
     anki
     bat
     eza
     fd
-    freecad
     fzf
     gcc
     git
@@ -73,8 +71,6 @@
     gdscript-formatter
     krita
     libreoffice
-    lua-language-server
-    nixd
     proton-vpn
     pyrefly
     ripgrep
