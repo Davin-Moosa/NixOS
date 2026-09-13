@@ -6,7 +6,9 @@
 
 {
   # Include the results of the hardware scan.
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader = {
@@ -65,13 +67,14 @@
     freecad
     fzf
     gcc
-    ghostty
     git
     git-crypt
     godot
     gdscript-formatter
     krita
     libreoffice
+    lua-language-server
+    nixd
     proton-vpn
     pyrefly
     ripgrep
@@ -83,11 +86,18 @@
     zoxide
   ];
 
+  environment.sessionVariables = {
+    PROTON_ENABLE_WAYLAND = "1";
+  };
+
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     plasma-browser-integration
-    konsole
     elisa
     qrca
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.symbols-only
   ];
 
   # List programs that you want to enable:
@@ -119,17 +129,8 @@
       enable = true;
       keyboards.default.settings = {
         main = {
-          leftalt = "oneshot(control)";
-          rightalt = "oneshot(alt)";
-          shift = "oneshot(shift)";
-
-          rightcontrol = "layer(altgr)";
-
           capslock = "esc";
           esc = "capslock";
-        };
-        global = {
-          oneshot_timeout = 1000;
         };
       };
     };
