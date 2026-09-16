@@ -87,6 +87,7 @@
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    plasma-browser-integration
     elisa
     qrca
   ];
@@ -98,8 +99,6 @@
   # List programs that you want to enable:
   programs = {
     fish.enable = true;
-
-    firefox.enable = true;
     neovim.enable = true;
     nix-ld.enable = true;
     steam.enable = true;
